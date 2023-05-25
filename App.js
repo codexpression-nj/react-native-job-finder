@@ -1,12 +1,31 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaView, ScrollView, StyleSheet, Text, View } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import Home from './app/home';
+import HeaderProfileBtn from './app/components/headerProfileBtn';
+import SearchBar from './app/components/searchBar';
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaView style={styles.container}>
+      <Stack.Screen
+        options={{
+          headerRight: () => (
+            <HeaderProfileBtn dimension='100%'/>
+          ),
+          headerTitle: ""
+        }}
+      />
+      <ScrollView>
+        <View style={{flex:1}}>
+          <SearchBar></SearchBar>
+          <Home></Home>
+        </View>
+      </ScrollView>
+    </SafeAreaView>
+
   );
 }
 
