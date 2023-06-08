@@ -6,14 +6,14 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 const SearchBar = () => {
     return (
       <View>
-        <View style={{flex:1}}>
+        <View>
             <TextInput
                 style={styles.input}
-                placeholder='What job are you ooing for?'
+                placeholder='What job are you looking for?'
             />
         </View>
         <TouchableOpacity style={styles.btn}>
-
+<Text>seracg</Text>
         </TouchableOpacity>
       </View>
     );
@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#2c3e50',
     },
     input:{
-        width: "100%",
-        height: "100%",
+        // width: "100%",
+        // height: "100%",
     },
     btn:{
         width:50,

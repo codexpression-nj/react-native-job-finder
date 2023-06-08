@@ -18,12 +18,13 @@ export default function App() {
           headerTitle: ""
         }}
       />
-      <ScrollView>
+      {/* <ScrollView> */}
         <View style={{flex:1}}>
+        <Home></Home>
+
           <SearchBar></SearchBar>
-          <Home></Home>
         </View>
-      </ScrollView>
+      {/* </ScrollView> */}
     </SafeAreaView>
 
   );
@@ -31,7 +32,7 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 2,
     backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
