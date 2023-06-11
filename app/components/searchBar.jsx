@@ -5,17 +5,18 @@ import { View, Text, StyleSheet, TextInput, TouchableOpacity } from 'react-nativ
 // create a component
 const SearchBar = () => {
     return (
-      <View>
-        <View>
-            <TextInput
-                style={styles.input}
-                placeholder='What job are you looking for?'
-            />
+        <View style={styles.container}>
+            <View >
+                <TextInput
+                    style={styles.input}
+                    placeholder='What job are you looking for?'
+                />
+                <TouchableOpacity style={styles.btn}>
+                    <Text>searh</Text>
+                </TouchableOpacity>
+            </View>
+
         </View>
-        <TouchableOpacity style={styles.btn}>
-<Text>seracg</Text>
-        </TouchableOpacity>
-      </View>
     );
 };
 
@@ -23,21 +24,24 @@ const SearchBar = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
+        width: "100%",
+        // 
+        // justifyContent: 'center',
         alignItems: 'center',
         backgroundColor: '#2c3e50',
     },
-    input:{
+    input: {
         // width: "100%",
-        // height: "100%",
+        height: 50,
+        backgroundColor: 'white',
+        marginTop: 40
     },
-    btn:{
-        width:50,
-        height:'100%',
-        backgroundColor:'amber',
-        borderRadius:10,
-        justifyContent:'center',
-        alignItems:'center'
+    btn: {
+        width: 100,
+        backgroundColor: 'white',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center'
     }
 });
 
