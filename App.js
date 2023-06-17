@@ -5,37 +5,24 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from './app/home';
 import HeaderProfileBtn from './app/components/headerProfileBtn';
 import SearchBar from './app/components/searchBar';
-const Stack = createNativeStackNavigator();
+// const Stack = createNativeStackNavigator();
+import { Stack } from "expo-router";
 
 export default function App() {
   return (
-    <SafeAreaView style={styles.container}>
-      <Stack.Screen 
-      
-        options={{
-          headerRight: () => (
-            <HeaderProfileBtn dimension='100%'/>
-          ),
-          headerTitle: ""
-        }}
-      />
-      {/* <ScrollView> */}
-        <View >
-        {/* <Home></Home> */}
-
-          <SearchBar></SearchBar>
-        </View>
-      {/* </ScrollView> */}
-    </SafeAreaView>
+    <Stack initialRouteName="home">
+    <Stack.Screen name="home" />
+  </Stack>
 
   );
 }
 
 const styles = StyleSheet.create({
   container: {
+    width: '100%',
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    justifyContent: 'center',
+    // justifyContent: 'center',
   },
 });
