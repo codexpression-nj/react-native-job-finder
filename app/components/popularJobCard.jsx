@@ -4,10 +4,11 @@ import { View, Text, StyleSheet, TouchableOpacity,Image } from 'react-native';
 import { SIZES, COLORS } from '../constants/theme';
 
 // create a component
-const PopularJobCard = ({ item, selectedJob }) => {
+const PopularJobCard = ({ item, selectedJob,handleCardPress }) => {
     return (
       <TouchableOpacity
       style={styles.container(selectedJob, item)}
+      onPress={() => handleCardPress(item)}
 
       >
   <TouchableOpacity style={styles.logoContainer(selectedJob, item)}>

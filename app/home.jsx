@@ -25,7 +25,7 @@ const Home = () => {
                     headerTitle: "",
                 }}
             />
-            <ScrollView>
+             {/* <Scroll/View showsVerticalScrollIndicator={false}> */}
                 <View style={{
                     flex: 1,
                     padding: SIZES.medium,
@@ -33,7 +33,7 @@ const Home = () => {
                     <HeaderGreeting />
                     <PopularJobs/>
                 </View>
-            </ScrollView>
+            {/* </ScrollView> */}
 
         </SafeAreaView>
     );
