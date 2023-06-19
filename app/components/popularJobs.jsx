@@ -1,10 +1,11 @@
 //import liraries
 import React, { Component, useState } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, ScrollView, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, FlatList, ActivityIndicator, ScrollView, SafeAreaView ,Image} from 'react-native';
 import { useRouter } from "expo-router";
 import useFetch from '../service/jobService';
 import { SIZES, COLORS } from '../constants/theme';
 import PopularJobCard from './popularJobCard';
+import networkError from '../../assets/networkError.png'
 // create a component
 const PopularJobs = () => {
     const router = useRouter();
@@ -33,8 +34,20 @@ const PopularJobs = () => {
                 {isLoading
                     ? (
                         <ActivityIndicator size='large' color={COLORS.primary} />
-                    ) : error ? (
-                        <Text>Something went wrong</Text>
+                    ) : error ? ( 
+                        (() => {
+                            if (error.code === 'ERR_NETWORK') 
+                            return <View style={styles.img}>
+                            <Text style={{fontWeight:"bold"}}>Oooop..No Network Connection</Text>
+                            <Image 
+                                source={networkError}
+                                resizeMode='contain'
+                                style={{width:'100%',height:150,margin:20,padding:20}}
+                            />
+                            <Text>Please check your internet connection and try again</Text>
+
+                            </View>
+                          })()
                     )
                         : (
                            <View>
@@ -75,6 +88,15 @@ const styles = StyleSheet.create({
     cardsContainer: {
         marginTop: SIZES.medium,
     },
+    img:{
+        display:'flex',
+        alignContent:'center',
+        justifyContent:'center',
+        alignItems:'center',
+        margin: 'auto',
+        flex:1
+    },
+
 });
 
 //make this component available to the app

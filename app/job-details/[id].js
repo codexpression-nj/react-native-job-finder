@@ -1,8 +1,9 @@
 //import liraries
-import React, { Component } from 'react';
-import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
+import React, { Component, useCallback, useState } from 'react';
+import { View, Text, StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
 import { Stack, useRouter, useSearchParams } from "expo-router";
 import useFetch from '../service/jobService';
+import { COLORS, SIZES } from '../constants/theme';
 
 // create a component
 const JobDetails = () => {
@@ -12,10 +13,32 @@ const JobDetails = () => {
         job_id: params.id,
       });
 
+      const [refreshing,setRefreshing] = useState(false);
+
+      const onRefresh = useCallback(() =>{
+        setRefreshing(true)
+        refetch()
+        setRefreshing(false)
+      },[]);
+
 
     return (
         <SafeAreaView style={styles.container}>
-            <Text>JobDetails</Text>
+            <>
+                { isLoading? (
+                    <ActivityIndicator/>
+                ):error ? (
+                   <Text></Text>
+                ) : data.length === 0 ? (
+                    <Text>NO data</Text>
+                ): (
+                    <View style={{padding: SIZES.medium,paddingBottom:100}}>
+                        <Text>{data[0].employer_name}</Text>
+                     
+                    </View>
+                )
+            }
+            </>
         </SafeAreaView>
     );
 };
@@ -24,9 +47,7 @@ const JobDetails = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor:COLORS.lightWhite
     },
 });
 
