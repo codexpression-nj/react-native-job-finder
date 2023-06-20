@@ -10,10 +10,11 @@ import { Stack } from "expo-router";
 
 export default function App() {
   return (
-    <Stack initialRouteName="home">
-    <Stack.Screen name="home" />
-  </Stack>
+  //   <Stack initialRouteName="welcome">
+  //   <Stack.Screen name="home" />
+  // </Stack>
 
+  <></>
   );
 }
 
