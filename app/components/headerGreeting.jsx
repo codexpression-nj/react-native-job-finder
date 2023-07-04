@@ -49,10 +49,10 @@ const HeaderGreeting = () => {
             renderItem={({ item }) => (
               <TouchableOpacity
                 style={styles.tab(activeJobType, item)}
-                // onPress={() => {
-                //   setActiveJobType(item);
-                //   router.push(`/search/${item}`);
-                // }}
+                onPress={() => {
+                  setActiveJobType(item);
+                  // router.push(`/search/${item}`);
+                }}
               >
                 <Text style={styles.tabText(activeJobType, item)}>{item}</Text>
               </TouchableOpacity>
@@ -109,7 +109,7 @@ const styles = StyleSheet.create({
       searchBtn: {
         width: 50,
         height: "100%",
-        backgroundColor: COLORS.tertiary,
+        backgroundColor: COLORS.secondary,
         borderRadius: SIZES.medium,
         justifyContent: "center",
         alignItems: "center",
@@ -128,11 +128,11 @@ const styles = StyleSheet.create({
         paddingHorizontal: SIZES.small,
         borderRadius: SIZES.medium,
         borderWidth: 1,
-        borderColor: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+        borderColor: activeJobType === item ? COLORS.primary : COLORS.gray2,
       }),
       tabText: (activeJobType, item) => ({
         // fontFamily: FONT.medium,
-        color: activeJobType === item ? COLORS.secondary : COLORS.gray2,
+        color: activeJobType === item ? COLORS.primary : COLORS.gray2,
       }),
 });
 

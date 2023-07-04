@@ -4,7 +4,7 @@ import { View, Text, StyleSheet, TouchableOpacity,Image } from 'react-native';
 import { COLORS } from './constants/theme';
 import { SIZES } from './constants/theme';
 import { Stack,useRouter } from 'expo-router';
-import pic from '../assets/welcomePic.png'
+import pic from '../assets/wel2.png'
 // create a component
 const Welcome = () => {
     const router = useRouter()
@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
        
     },
     getStartedBtn: {
-        backgroundColor: COLORS.tertiary,
+        backgroundColor: COLORS.secondary,
         borderRadius:SIZES.medium,
         justifyContent: "center",
         alignItems: "center",
@@ -82,7 +82,7 @@ const styles = StyleSheet.create({
         margin:SIZES.medium
       },
       subTittle:{
-        color:COLORS.secondary,
+        color:COLORS.primary,
         margin:SIZES.medium,
         fontSize:SIZES.medium
 

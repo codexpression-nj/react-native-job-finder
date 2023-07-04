@@ -9,6 +9,7 @@ const Layout = () =>{
   return <Stack initialRouteName="welcome">
           <Stack.Screen name="home" />
           <Stack.Screen name="welcome" />
+          <Stack.Screen name="login" />
   </Stack>;
 }
 export default Layout;
