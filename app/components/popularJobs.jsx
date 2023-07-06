@@ -5,7 +5,7 @@ import { useRouter } from "expo-router";
 import useFetch from '../service/jobService';
 import { SIZES, COLORS } from '../constants/theme';
 import PopularJobCard from './popularJobCard';
-import networkError from '../../assets/networkError.png';
+import networkError from '../../assets/errorNetwork.png';
 import errorNotfound from '../../assets/404.png';
 // create a component
 const PopularJobs = () => {
@@ -40,13 +40,14 @@ const PopularJobs = () => {
                             if (error.code === 'ERR_NETWORK') {
                                 return (
                                     <View style={styles.img}>
-                                        <Text style={{ fontWeight: "bold" }}>Oooop..No Network Connection</Text>
                                         <Image
                                             source={networkError}
                                             resizeMode='contain'
                                             style={{ width: '100%', height: 250, margin: 20, padding: 20 }}
                                         />
-                                        <Text>Please check your internet connection and try again</Text>
+                                        <Text style={{ fontWeight: "500" }}>Oop..No Network Connection</Text>
+                                       
+                                        <Text style={styles.errorMessage}>Please check your internet connection and try again</Text>
                                     </View>)
                             } else if (error.code === 'ERR_BAD_REQUEST') {
                                 return (
@@ -54,9 +55,9 @@ const PopularJobs = () => {
                                         <Image
                                             source={errorNotfound}
                                             resizeMode='contain'
-                                            style={{ width: '100%', height: 150, margin: 20, padding: 20 }}
+                                            style={{ width: '100%', height: 250, margin: 20, padding: 20 }}
                                         />
-                                        <Text style={{ fontWeight: "bold" }}>Oooop.. something is not right ..</Text>
+                                        <Text style={styles.errorMessage} >Look like something is not right ..</Text>
 
                                     </View>)
                             }
@@ -111,7 +112,10 @@ const styles = StyleSheet.create({
         // flex: 3,
 
     },
-
+    errorMessage:{
+        color:COLORS.primary,
+        fontWeight:'300'
+    }
 });
 
 //make this component available to the app

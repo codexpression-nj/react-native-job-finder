@@ -30,7 +30,7 @@ const Welcome = () => {
                 <Text style={styles.title}>Find a perfect job match</Text>
                 <Text style={styles.subTittle}>Finding your dream johb is no much easier and faster like never before</Text>
                 <TouchableOpacity style={styles.getStartedBtn}
-                    onPress={() => {router.push('/home')}}
+                    onPress={() => {router.push('/login')}}
                 >
                     <Text style={styles.btnText}>Let's Get Started</Text>
                 </TouchableOpacity>
