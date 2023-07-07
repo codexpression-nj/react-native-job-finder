@@ -10,6 +10,7 @@ const Layout = () =>{
           <Stack.Screen name="home" />
           <Stack.Screen name="welcome" />
           <Stack.Screen name="login" />
+          <Stack.Screen name="signUp" />
   </Stack>;
 }
 export default Layout;

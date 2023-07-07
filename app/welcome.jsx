@@ -34,6 +34,7 @@ const Welcome = () => {
                 >
                     <Text style={styles.btnText}>Let's Get Started</Text>
                 </TouchableOpacity>
+              
             </View>
         </View>
     );

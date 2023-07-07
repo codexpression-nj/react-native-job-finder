@@ -1,11 +1,12 @@
 //import liraries
-import { Stack } from 'expo-router';
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { COLORS, SIZES } from './constants/theme';
+import { Stack,useRouter } from 'expo-router';
 
 // create a component
 const Login = () => {
+    const router = useRouter()
     return (
         <View style={styles.container}>
              <Stack.Screen 
@@ -20,6 +21,10 @@ const Login = () => {
             <TouchableOpacity style={styles.btnLogin}>
                 <Text>Login</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                    onPress={() => {router.push('/signUp')}}>
+                    <Text>Sign Up</Text>
+                </TouchableOpacity>
         </View>
     );
 };
@@ -28,9 +33,6 @@ const Login = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        // justifyContent: 'center',
-        // alignItems: 'center',
-        // backgroundColor: '#2c3e50',
     },
     btnLogin:{
         backgroundColor: COLORS.secondary,
