@@ -2,7 +2,8 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { Stack,useRouter } from 'expo-router';
-import { TouchableOpacity } from 'react-native-gesture-handler';
+import { TextInput, TouchableOpacity } from 'react-native-gesture-handler';
+import { COLORS, SIZES } from './constants/theme';
 
 // create a component
 const Signup = () => {
@@ -17,7 +18,20 @@ const Signup = () => {
                     headerShown:false
                 }}
             />
-            <TouchableOpacity 
+             <TextInput
+                style={styles.input}
+                placeholder='Name'
+            />
+  <TextInput
+                style={styles.input}
+                placeholder='Email'
+            />
+            <TextInput
+                style={styles.input}
+                placeholder='Password'
+            />
+            <TouchableOpacity
+                style={styles.signUPbtn} 
                 onPress={() => {route.push('/home')}}>
                 <Text>Sign Up</Text>
             </TouchableOpacity>
@@ -34,8 +48,27 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'white',
+        padding:16,
+        backgroundColor: COLORS.lightWhite,
+    },
+    signUPbtn:{
+        backgroundColor: COLORS.secondary,
+        borderRadius: SIZES.medium,
+        justifyContent: "center",
+        alignItems: "center",
+        height: 50,
+        margin: SIZES.medium,
+        marginTop: SIZES.large
+    },
+    input: {
+        height: 50,
+        margin:6,
+        padding:16,
+        backgroundColor: COLORS.white,
+        marginRight: SIZES.small,
+        justifyContent: "center",
+        alignItems: "center",
+        borderRadius: SIZES.medium,
     },
 });
 
