@@ -1,8 +1,9 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, TextInput } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, TextInput, Image } from 'react-native';
 import { COLORS, SIZES } from './constants/theme';
 import { Stack, useRouter } from 'expo-router';
+import logo from '../assets/appLogo.png'
 
 // create a component
 const Login = () => {
@@ -17,9 +18,13 @@ const Login = () => {
                     headerShown: false
                 }}
             />
+            <Image source={logo} style={styles.logo} />
 
-            <Text>Hi There,</Text>
-            <Text>Great to see you again.</Text>
+            <View style={{ marginBottom: 32 }}>
+                <Text style={styles.greeting}>Hi There,</Text>
+                <Text style={styles.welcomeMessage}>Great to see you again.</Text>
+            </View>
+
             <TextInput
                 style={styles.input}
                 placeholder='Email'
@@ -29,17 +34,24 @@ const Login = () => {
                 style={styles.input}
                 placeholder='Password'
             />
-            <Text>Forgot your password? </Text><TouchableOpacity><Text>Let's us help</Text></TouchableOpacity>
+            <View style={styles.forgotPassword}>
+                <Text style={{ fontWeight: '300' }}>Forgot? </Text>
+                <TouchableOpacity><Text style={{ fontWeight: '300', color: COLORS.secondary }}>Let's us help</Text></TouchableOpacity>
+            </View>
 
             <TouchableOpacity style={styles.btnLogin}
                 onPress={() => { router.push('/home') }}>
-                <Text>Login</Text>
+                <Text style={{ color: COLORS.white }}>Login</Text>
             </TouchableOpacity>
-            <Text>Don't have an account?</Text>
-            <TouchableOpacity
-                onPress={() => { router.push('/signUp') }}>
-                <Text>Sign Up</Text>
-            </TouchableOpacity>
+
+            <View style={styles.signup}>
+                <Text style={{ fontWeight: '300' }}>Don't have an account? </Text>
+                <TouchableOpacity
+                    onPress={() => { router.push('/signUp') }}>
+                    <Text style={{ fontWeight: '300', color: COLORS.secondary }} >Sign Up</Text>
+                </TouchableOpacity>
+            </View>
+
         </View>
     );
 };
@@ -50,7 +62,7 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         padding: 16,
-        backgroundColor:COLORS.lightWhite,
+        backgroundColor: COLORS.lightWhite,
 
     },
     btnLogin: {
@@ -60,18 +72,48 @@ const styles = StyleSheet.create({
         alignItems: "center",
         height: 50,
         margin: SIZES.medium,
-        marginTop: SIZES.large
+        marginTop: 50
     },
     input: {
         height: 50,
-        margin:6,
-        padding:16,
+        margin: 6,
+        padding: 16,
         backgroundColor: COLORS.white,
         marginRight: SIZES.small,
         justifyContent: "center",
         alignItems: "center",
         borderRadius: SIZES.medium,
     },
+    greeting: {
+        fontSize: SIZES.large,
+        color: COLORS.secondary,
+        fontWeight:'300'
+
+    },
+    welcomeMessage: {
+        fontSize: SIZES.medium,
+        color: COLORS.primary,
+        marginTop: 2,
+        fontWeight:'300'
+    },
+    forgotPassword: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignSelf: 'flex-end',
+        marginRight: 16
+    },
+    signup: {
+        display: 'flex',
+        flexDirection: 'row',
+        // alignSelf:'flex-end',
+        marginLeft: 16
+    },
+    logo: {
+        height: 80,
+        width: 80,
+        alignSelf: 'center',
+        marginBottom: 50
+    }
 });
 
 //make this component available to the app
