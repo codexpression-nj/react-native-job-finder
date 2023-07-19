@@ -36,7 +36,10 @@ const Login = () => {
             />
             <View style={styles.forgotPassword}>
                 <Text style={{ fontWeight: '300' }}>Forgot? </Text>
-                <TouchableOpacity><Text style={{ fontWeight: '300', color: COLORS.secondary }}>Let's us help</Text></TouchableOpacity>
+                <TouchableOpacity
+                onPress={() => { router.push('/resetPassword') }}
+                >
+                    <Text style={{ fontWeight: '300', color: COLORS.secondary }}>Let's us help</Text></TouchableOpacity>
             </View>
 
             <TouchableOpacity style={styles.btnLogin}

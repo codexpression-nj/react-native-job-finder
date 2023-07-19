@@ -28,7 +28,7 @@ const JobDetails = () => {
                 { isLoading? (
                     <ActivityIndicator/>
                 ):error ? (
-                   <Text></Text>
+                   <Text>Something went wrong</Text>
                 ) : data.length === 0 ? (
                     <Text>NO data</Text>
                 ): (

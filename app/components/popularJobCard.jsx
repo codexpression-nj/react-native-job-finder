@@ -35,7 +35,7 @@ const PopularJobCard = ({ item, selectedJob,handleCardPress }) => {
           <Text style={styles.publisher(selectedJob, item)}>
             {item?.job_publisher} -
           </Text>
-          <Text style={styles.location}> {item.job_country}</Text>
+          <Text style={styles.location} > {item.job_country} </Text>
         </View>
       </View>
       </TouchableOpacity>
@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
         padding: SIZES.xLarge,
         backgroundColor: selectedJob === item.job_id ? COLORS.primary : "#FFF",
         borderRadius: SIZES.medium,
-        justifyContent: "space-between",
+        // justifyContent: "space-between",
         // ...SHADOWS.medium,
         shadowColor: COLORS.white,
       }),

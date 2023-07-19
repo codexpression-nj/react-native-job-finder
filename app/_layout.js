@@ -1,7 +1,6 @@
 import { Stack } from "expo-router/stack";
 
 export const unstable_settings = {
-    // Ensure any route can link back to `/`
     initialRouteName: "welcome",
   };
   
@@ -11,6 +10,7 @@ const Layout = () =>{
           <Stack.Screen name="welcome" />
           <Stack.Screen name="login" />
           <Stack.Screen name="signUp" />
+          <Stack.Screen name="resetPassword" />
   </Stack>;
 }
 export default Layout;
