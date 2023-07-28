@@ -7,6 +7,7 @@ import { View, Text, StyleSheet,TextInput,
 import { SIZES,COLORS } from '../constants/theme';
 import { useRouter } from "expo-router";
 import icons from '../constants/icons';
+import QuizCard from './quizCard';
 
 // create a component
 const jobTypes = ["Full-time", "Part-time", "Contractor"];
@@ -21,7 +22,7 @@ const HeaderGreeting = () => {
           <Text style={styles.userName}>Hello Nokwanda</Text>
           <Text style={styles.welcomeMessage}>Find your perfect job</Text>
         </View>
-  
+  <QuizCard/>
         <View style={styles.searchContainer}>
           <View style={styles.searchWrapper}>
             <TextInput
@@ -43,7 +44,7 @@ const HeaderGreeting = () => {
           </TouchableOpacity>
         </View>
   
-        <View style={styles.tabsContainer}>
+        {/* <View style={styles.tabsContainer}>
           <FlatList
             data={jobTypes}
             renderItem={({ item }) => (
@@ -61,7 +62,7 @@ const HeaderGreeting = () => {
             contentContainerStyle={{ columnGap: SIZES.small }}
             horizontal
           />
-        </View>
+        </View> */}
       </View>
     );
 };
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
         color: COLORS.secondary,
       },
       welcomeMessage: {
-        fontSize: SIZES.xLarge,
+        fontSize: SIZES.medium,
         color: COLORS.primary,
         marginTop: 2,
       },

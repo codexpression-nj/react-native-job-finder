@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
       bottomView:{
         flex:1,
         width:'100%',
-        backgroundColor:COLORS.lightWhite,
+        backgroundColor: '#ffffff',
         borderTopLeftRadius:SIZES.medium,
         borderTopRightRadius:SIZES.medium,
         marginTop:SIZES.small,
@@ -85,7 +85,8 @@ const styles = StyleSheet.create({
       subTittle:{
         color:COLORS.primary,
         margin:SIZES.medium,
-        fontSize:SIZES.medium
+        fontSize:SIZES.medium,
+        fontWeight:300
 
       }
 });

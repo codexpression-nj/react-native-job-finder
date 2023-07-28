@@ -7,6 +7,7 @@ import { Stack, useRouter } from "expo-router";
 import HeaderProfileBtn from './components/headerProfileBtn';
 import profile from '../assets/NokwandaPic.jpg'
 import PopularJobs from './components/popularJobs';
+import QuizCard from './components/quizCard';
 // create a component
 const Home = () => {
     const router = useRouter()
@@ -30,7 +31,9 @@ const Home = () => {
                     flex: 1,
                     padding: SIZES.medium,
                 }}>
+                    
                     <HeaderGreeting />
+                    {/* <QuizCard/> */}
                     <PopularJobs/>
                 </View>
             {/* </ScrollView> */}
