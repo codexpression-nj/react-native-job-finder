@@ -10,6 +10,7 @@ const Layout = () =>{
           <Stack.Screen name="welcome" />
           <Stack.Screen name="login" />
           <Stack.Screen name="signUp" />
+          <Stack.Screen name="onBoard" />
           <Stack.Screen name="resetPassword" />
   </Stack>;
 }

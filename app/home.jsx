@@ -19,7 +19,7 @@ const Home = () => {
                 options={{
                     headerStyle: { backgroundColor: COLORS.lightWhite },
                     headerShadowVisible: false,
-
+                    
                     headerRight: () => (
                         <HeaderProfileBtn iconUrl={profile} dimension='100%' />
                     ),

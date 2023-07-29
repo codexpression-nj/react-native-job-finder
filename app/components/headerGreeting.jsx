@@ -18,9 +18,9 @@ const HeaderGreeting = () => {
 
     return (
         <View>
-        <View style={styles.container}>
-          <Text style={styles.userName}>Hello Nokwanda</Text>
-          <Text style={styles.welcomeMessage}>Find your perfect job</Text>
+             <View style={styles.container}>
+          <Text style={styles.userName}>Hi Nokwanda</Text>
+          {/* <Text style={styles.welcomeMessxage}>Find your perfect job</Text> */}
         </View>
   <QuizCard/>
         <View style={styles.searchContainer}>

@@ -1,17 +1,23 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity ,Image} from 'react-native';
+import { COLORS, SIZES } from '../constants/theme';
 
 // create a component
 const HeaderProfileBtn = ({iconUrl}) => {
     return (
-     <TouchableOpacity style={styles.btn}>
-        <Image
-            source={iconUrl}
-            resizeMode='cover'
-            style={styles.btnImg}
-        /> 
-     </TouchableOpacity>
+        <View>
+        
+   <TouchableOpacity style={styles.btn}>
+
+<Image
+    source={iconUrl}
+    resizeMode='cover'
+    style={styles.btnImg}
+/> 
+</TouchableOpacity>
+        </View>
+  
     );
 };
 
@@ -29,7 +35,19 @@ const styles = StyleSheet.create({
         width:'100%',
         height: '100%',
         borderRadius:5
-    }
+    },
+    container: {
+        width: "100%",
+      },
+      userName: {
+        fontSize: SIZES.large,
+        color: COLORS.secondary,
+      },
+      welcomeMessage: {
+        fontSize: SIZES.medium,
+        color: COLORS.primary,
+        marginTop: 2,
+      },
 });
 
 //make this component available to the app
