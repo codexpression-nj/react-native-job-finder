@@ -9,10 +9,10 @@ const SearchBar = () => {
             <View >
                 <TextInput
                     style={styles.input}
-                    placeholder='What joswb are you looking for?'
+                    placeholder='What job are you looking for?'
                 />
                 <TouchableOpacity style={styles.btn}>
-                    <Text>searh</Text>
+                    <Text>search</Text>
                 </TouchableOpacity>
             </View>
 
