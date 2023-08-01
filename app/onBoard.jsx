@@ -8,7 +8,6 @@ import skillExpertise from './service/skillExpertiseData';
 import { } from 'react-native-web';
 import { COLORS, SIZES } from './constants/theme';
 import { Stack } from 'expo-router';
-import SearchBar from './components/searchBar';
 
 const Item = ({ title }) => (
   <TouchableOpacity style={styles.item}>
@@ -63,6 +62,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 34,
     color: COLORS.white,
+    textAlign:'center'
   },
   subTitle:{
     color:COLORS.white,
@@ -97,6 +97,13 @@ const styles = StyleSheet.create({
     paddingHorizontal: SIZES.medium,
     color:COLORS.white
   },
+  item:{
+    backgroundColor:COLORS.tertiary,
+    margin:10,
+    padding:10,
+    borderRadius: SIZES.medium,
+    justifyContent:'center'
+  }
 });
 
 //make this component available to the app
