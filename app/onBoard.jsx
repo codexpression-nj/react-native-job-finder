@@ -1,13 +1,9 @@
 //import liraries
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity, TextInput } from 'react-native';
-// import { CheckBox } from 'react-native-web';
-import CheckBox from '@react-native-community/checkbox';
-// import { SafeAreaView } from 'react-native-web';
 import skillExpertise from './service/skillExpertiseData';
-import { } from 'react-native-web';
 import { COLORS, SIZES } from './constants/theme';
-import { Stack } from 'expo-router';
+import { Stack,useRouter } from 'expo-router';
 
 const Item = ({ title }) => (
   <TouchableOpacity style={styles.item}>
@@ -16,6 +12,8 @@ const Item = ({ title }) => (
 );
 const OnBoard = () => {
   const { skillsData } = skillExpertise();
+  const route = useRouter()
+
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Screen
@@ -23,6 +21,17 @@ const OnBoard = () => {
           headerShown: false
         }}
       />
+      <TouchableOpacity 
+      style={styles.skipBtn
+        
+      }
+      onPress={() => { route.push('/home') }}
+
+      >
+        <Text>
+          Skip
+        </Text>
+      </TouchableOpacity>
       <View style={styles.titleBox}>
         {/* <SearchBar/> */}
         <Text style={styles.title}>
@@ -43,9 +52,11 @@ const OnBoard = () => {
       </View>
 
       <FlatList
+    
         data={skillsData}
         renderItem={({ item }) => <Item title={item} />}
         keyExtractor={item => item.id}
+        
       />
     </SafeAreaView>
   );
@@ -56,7 +67,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
+    // alignItems: 'center',
     backgroundColor: COLORS.backgroundColour,
   },
   title: {
@@ -102,7 +113,19 @@ const styles = StyleSheet.create({
     margin:10,
     padding:10,
     borderRadius: SIZES.medium,
-    justifyContent:'center'
+    justifyContent:'center',
+    alignContent:'center',
+    width: '80%',
+    alignItems: 'center',
+
+  } ,skills:{
+    color:'white',
+    fontSize:18, 
+    fontWeight:300
+  },
+  skipBtn:{
+    alignContent:'flex-end',
+    margin:30
   }
 });
 
