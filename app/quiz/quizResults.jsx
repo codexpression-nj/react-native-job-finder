@@ -17,8 +17,15 @@ const styles = StyleSheet.create({
         flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#2c3e50',
+        backgroundColor: COLORS.backgroundColour,
     },
+    btn:{
+        backgroundColor: COLORS.white,
+        paddingHorizontal: 5,
+        paddingVertical: 15,
+         width: '50%',
+          borderRadius: 15,
+    }
 });
 
 //make this component available to the app
