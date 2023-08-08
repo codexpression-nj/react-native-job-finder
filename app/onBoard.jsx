@@ -109,19 +109,21 @@ const styles = StyleSheet.create({
     color:COLORS.white
   },
   item:{
-    backgroundColor:COLORS.tertiary,
+    // backgroundColor:COLORS.tertiary,
     margin:10,
     padding:10,
     borderRadius: SIZES.medium,
     justifyContent:'center',
     alignContent:'center',
-    width: '80%',
+    // width: '80%',
     alignItems: 'center',
+    borderWidth:1,
+    borderColor:COLORS.tertiary
 
   } ,skills:{
-    color:'white',
-    fontSize:18, 
-    fontWeight:300
+    color:COLORS.tertiary,
+    fontSize:20, 
+    // fontWeight:300
   },
   skipBtn:{
     alignContent:'flex-end',

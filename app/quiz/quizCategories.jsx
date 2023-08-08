@@ -1,11 +1,13 @@
 //import liraries
 import React, { Component } from 'react';
-import { View, Text, StyleSheet,FlatList } from 'react-native';
+import { View, Text, StyleSheet,FlatList ,TouchableOpacity} from 'react-native';
 import { COLORS } from '../constants/theme';
+import categories from '../service/categories';
+import { Stack,useRouter } from 'expo-router';
 
 const Item = ({ title,onPress}) => (
     <TouchableOpacity
-        onPress={onPress}
+        // onPress={onPress}
         style={styles.itemContainer}
     >
         <Text style={styles.itemText}>{title}</Text>
@@ -15,12 +17,20 @@ const Item = ({ title,onPress}) => (
 const QuizCategories = () => {
     return (
         <View style={styles.container}>
+              <Stack.Screen 
+                options = {{
+                    // headerStyle: { backgroundColor: COLORS.white },
+                    headerShadowVisible: false,
+                    headerTitle: "",
+                    headerShown:false
+                }}
+            />
         <FlatList
-            data={categorie}
+            data={categories}
             renderItem={
                 ({ item }) => <Item title={item.name} 
                     onPress={() =>{
-                        navigation.navigate('Home')
+                        // navigation.navigate('Home')
                     }}
                 />
             }

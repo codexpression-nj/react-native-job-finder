@@ -1,5 +1,5 @@
 
-export default categories = [
+export default CATEGORIES = [
     {
       "name": "Programming Languages and Frameworks"
     },

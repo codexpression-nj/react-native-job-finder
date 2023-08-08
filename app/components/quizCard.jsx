@@ -5,14 +5,22 @@ import { COLORS, SIZES } from '../constants/theme';
 import { Colors } from 'react-native/Libraries/NewAppScreen';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import imgb from '../../assets/imgq.png'
+import { useRouter } from "expo-router";
+
 // create a component
 const QuizCard = () => {
+    const router = useRouter();
+
     return (
         <View style={styles.container}>
             <Text style={styles.title} numberOfLines={4}>Test your knowledge and prepare for technical interview question</Text>
            
             
-            <TouchableOpacity style={styles.startQuiz}>
+            <TouchableOpacity style={styles.startQuiz}
+                onPress={()=> {
+                    router.push('/quiz/quizCategories')
+                }}
+            >
                 <Text style={styles.btnText} >
                     Take quiz test
                 </Text>
