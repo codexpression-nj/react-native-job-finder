@@ -15,6 +15,8 @@ const Item = ({ title,onPress}) => (
 );
 // create a component
 const QuizCategories = () => {
+    const router = useRouter()
+
     return (
         <View style={styles.container}>
               <Stack.Screen 
@@ -29,9 +31,7 @@ const QuizCategories = () => {
             data={categories}
             renderItem={
                 ({ item }) => <Item title={item.name} 
-                    onPress={() =>{
-                        // navigation.navigate('Home')
-                    }}
+                onPress={() => {router.push('/quiz')}}
                 />
             }
             keyExtractor={(item) => item.id}
