@@ -32,10 +32,20 @@ const JobDetails = () => {
                 ) : data.length === 0 ? (
                     <Text>NO data</Text>
                 ): (
-                    <View style={{padding: SIZES.medium,paddingBottom:100}}>
+                    <>
+                         <View style={{padding: SIZES.medium,paddingBottom:100}}>
                         <Text>{data[0].employer_name}</Text>
                      
                     </View>
+                    <View style={styles.container}>
+      <Text style={styles.headText}>About the job:</Text>
+
+      <View style={styles.contentBox}>
+        <Text style={styles.contextText}>{info}</Text>
+      </View>
+    </View>
+                    </>
+               
                 )
             }
             </>
