@@ -16,7 +16,11 @@ const Item = ({ title,onPress}) => (
 // create a component
 const QuizCategories = () => {
     const router = useRouter()
-
+    const handleCardPress = (item) => {
+        console.log(item);
+        router.push(`/job-details/${item.job_id}`);
+        setSelectedJob(item.job_id);
+    };
     return (
         <View style={styles.container}>
               <Stack.Screen 
@@ -31,7 +35,7 @@ const QuizCategories = () => {
             data={categories}
             renderItem={
                 ({ item }) => <Item title={item.name} 
-                onPress={() => {router.push('/quiz')}}
+                onPress={() => {router.push('quiz/quiz')}}
                 />
             }
             keyExtractor={(item) => item.id}

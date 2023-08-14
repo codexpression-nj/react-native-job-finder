@@ -11,43 +11,43 @@ const JobDetails = () => {
     const router = useRouter();
     const { data, isLoading, error, refetch } = useFetch("job-details", {
         job_id: params.id,
-      });
+    });
 
-      const [refreshing,setRefreshing] = useState(false);
+    const [refreshing, setRefreshing] = useState(false);
 
-      const onRefresh = useCallback(() =>{
+    const onRefresh = useCallback(() => {
         setRefreshing(true)
         refetch()
         setRefreshing(false)
-      },[]);
+    }, []);
 
 
     return (
         <SafeAreaView style={styles.container}>
             <>
-                { isLoading? (
-                    <ActivityIndicator/>
-                ):error ? (
-                   <Text>Something went wrong</Text>
+                {isLoading ? (
+                    <ActivityIndicator />
+                ) : error ? (
+                    <Text>Something went wrong</Text>
                 ) : data.length === 0 ? (
                     <Text>NO data</Text>
-                ): (
+                ) : (
                     <>
-                         <View style={{padding: SIZES.medium,paddingBottom:100}}>
-                        <Text>{data[0].employer_name}</Text>
-                     
-                    </View>
-                    <View style={styles.container}>
-      <Text style={styles.headText}>About the job:</Text>
+                        <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
+                            <Text>{data[0].employer_name}</Text>
 
-      <View style={styles.contentBox}>
-        <Text style={styles.contextText}>{info}</Text>
-      </View>
-    </View>
+                        </View>
+                        <View style={styles.container}>
+                            <Text style={styles.headText}>About the job:</Text>
+
+                            <View style={styles.contentBox}>
+                                <Text style={styles.contextText}>{info}</Text>
+                            </View>
+                        </View>
                     </>
-               
+
                 )
-            }
+                }
             </>
         </SafeAreaView>
     );
@@ -57,7 +57,7 @@ const JobDetails = () => {
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor:COLORS.lightWhite
+        backgroundColor: COLORS.lightWhite
     },
 });
 
