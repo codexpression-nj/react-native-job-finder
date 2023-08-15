@@ -7,7 +7,7 @@ import { Stack,useRouter } from 'expo-router';
 
 const Item = ({ title,onPress}) => (
     <TouchableOpacity
-        // onPress={onPress}
+        onPress={onPress}
         style={styles.itemContainer}
     >
         <Text style={styles.itemText}>{title}</Text>
@@ -18,8 +18,8 @@ const QuizCategories = () => {
     const router = useRouter()
     const handleCardPress = (item) => {
         console.log(item);
-        router.push(`/job-details/${item.job_id}`);
-        setSelectedJob(item.job_id);
+        router.push('/quiz/quiz');
+        // setSelectedJob(item.job_id);
     };
     return (
         <View style={styles.container}>
@@ -34,8 +34,7 @@ const QuizCategories = () => {
         <FlatList
             data={categories}
             renderItem={
-                ({ item }) => <Item title={item.name} 
-                onPress={() => {router.push('quiz/quiz')}}
+                ({ item }) => <Item onPress={handleCardPress} title={item.name} 
                 />
             }
             keyExtractor={(item) => item.id}
