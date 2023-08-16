@@ -8,7 +8,7 @@ import { useRouter } from "expo-router";
 // create a component
 const Quiz = () => {
     const router = useRouter();
-
+    const params = useSearchParams();
     const allQuestions = QUIZQUESTIONS['programmingLanguagesAndFrameworks'];
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
     const [isOptionsDisabled, setIsOptionsDisabled] = useState(false);

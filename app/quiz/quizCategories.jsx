@@ -16,10 +16,14 @@ const Item = ({ title,onPress}) => (
 // create a component
 const QuizCategories = () => {
     const router = useRouter()
+    const [selectedCategory, setSelectedCategory] = useState('')
+
     const handleCardPress = (item) => {
         console.log(item);
-        router.push('/quiz/quiz');
+        setSelectedCategory(item)
+        // router.push('/quiz/quiz');
         // setSelectedJob(item.job_id);
+        router.push(`/quiz/quiz/${item}`);
     };
     return (
         <View style={styles.container}>
