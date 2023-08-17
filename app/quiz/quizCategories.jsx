@@ -1,5 +1,5 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component,useState } from 'react';
 import { View, Text, StyleSheet,FlatList ,TouchableOpacity} from 'react-native';
 import { COLORS } from '../constants/theme';
 import categories from '../service/categories';
