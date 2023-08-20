@@ -1,6 +1,6 @@
 //import liraries
 import React, { Component, useCallback, useState } from 'react';
-import { View, Text, StyleSheet, SafeAreaView, ActivityIndicator } from 'react-native';
+import { View, Text, StyleSheet,RefreshControl, SafeAreaView, ActivityIndicator,ScrollView } from 'react-native';
 import { Stack, useRouter, useSearchParams } from "expo-router";
 import useFetch from '../service/jobService';
 import { COLORS, SIZES } from '../constants/theme';
@@ -9,7 +9,7 @@ import { COLORS, SIZES } from '../constants/theme';
 const JobDetails = () => {
     const params = useSearchParams();
     const router = useRouter();
-    const { data, isLoading, error, refetch } = useFetch("job-details", {
+    const { data, isLoading, error, refresh } = useFetch("job-details", {
         job_id: params.id,
     });
 
@@ -17,13 +17,31 @@ const JobDetails = () => {
 
     const onRefresh = useCallback(() => {
         setRefreshing(true)
-        refetch()
+        refresh()
         setRefreshing(false)
     }, []);
 
 
     return (
         <SafeAreaView style={styles.container}>
+            <Stack.Screen
+        options={{
+          headerStyle: { backgroundColor: COLORS.lightWhite },
+          headerShadowVisible: false,
+          headerBackVisible: false,
+        //   headerLeft: () => (
+        //     <ScreenHeaderBtn
+        //       iconUrl={icons.left}
+        //       dimension='60%'
+        //       handlePress={() => router.back()}
+        //     />
+        //   ),
+        //   headerRight: () => (
+        //     <ScreenHeaderBtn iconUrl={icons.share} dimension='60%' />
+        //   ),
+          headerTitle: "",
+        }}
+      />
             <>
                 {isLoading ? (
                     <ActivityIndicator />
@@ -33,17 +51,25 @@ const JobDetails = () => {
                     <Text>NO data</Text>
                 ) : (
                     <>
+                      <ScrollView showsVerticalScrollIndicator={false}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
+        >
+
                         <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
                             <Text>{data[0].employer_name}</Text>
+                            <Text>{data[0].job_country}</Text>
+                            <Text>{data[0].job_title}</Text>
 
                         </View>
-                        <View style={styles.container}>
-                            <Text style={styles.headText}>About the job:</Text>
-
-                            <View style={styles.contentBox}>
-                                <Text style={styles.contextText}>{info}</Text>
+                        <View style={styles.aboutContainer}>
+                            <Text style={styles.aboutTitle}>About the job:</Text>
+                            <View style={styles.aboutContent}>
+                                <Text style={styles.aboutContext}>{data[0].job_description ?? "n/a"}</Text>
                             </View>
                         </View>
+        </ScrollView>
+
                     </>
 
                 )
@@ -59,6 +85,27 @@ const styles = StyleSheet.create({
         flex: 1,
         backgroundColor: COLORS.lightWhite
     },
+    aboutContainer:{
+        marginTop: SIZES.large,
+        backgroundColor: "#FFF",
+        borderRadius: SIZES.medium,
+        padding: SIZES.medium,
+    },
+    aboutContent:{
+        marginVertical: SIZES.small,
+
+    },
+    aboutContext:{
+        fontSize: SIZES.medium - 2,
+        color: COLORS.gray,
+        // fontFamily: FONT.regular,
+        marginVertical: SIZES.small / 1.25,
+    },
+    aboutTitle:{
+        fontSize: SIZES.large,
+        color: COLORS.primary,
+    }
+
 });
 
 //make this component available to the app
