@@ -12,7 +12,7 @@ const PopularJobs = () => {
     const router = useRouter();
     const { data, isLoading, error } = useFetch("search", {
         query: "React developer",
-        num_pages: "1",
+        num_pages: "3",
     });
 
     const [selectedJob, setSelectedJob] = useState();

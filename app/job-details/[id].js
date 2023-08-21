@@ -19,7 +19,7 @@ const JobDetails = () => {
         setRefreshing(true)
         refresh()
         setRefreshing(false)
-    }, []);
+    }, []); 
 
 
     return (
@@ -55,13 +55,19 @@ const JobDetails = () => {
           refreshControl={
             <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />}
         >
+                    <View style={styles.companyContainer}>
+                        <View style={styles.companyLogo}>
 
+                        </View>
+                        
                         <View style={{ padding: SIZES.medium, paddingBottom: 100 }}>
                             <Text>{data[0].employer_name}</Text>
                             <Text>{data[0].job_country}</Text>
                             <Text>{data[0].job_title}</Text>
 
                         </View>
+                    </View>
+
                         <View style={styles.aboutContainer}>
                             <Text style={styles.aboutTitle}>About the job:</Text>
                             <View style={styles.aboutContent}>
@@ -104,6 +110,19 @@ const styles = StyleSheet.create({
     aboutTitle:{
         fontSize: SIZES.large,
         color: COLORS.primary,
+    },
+    companyContainer:{
+        marginVertical: SIZES.medium,
+        justifyContent: "center",
+        alignItems: "center",
+    },
+    companyLogo:{
+        width: 80,
+        height: 80,
+        justifyContent: "center",
+        alignItems: "center",
+        backgroundColor: "#FFF",
+        borderRadius: SIZES.large,
     }
 
 });
