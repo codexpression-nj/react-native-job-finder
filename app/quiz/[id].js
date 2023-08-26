@@ -9,6 +9,9 @@ import { useRouter } from "expo-router";
 const Quiz = () => {
     const router = useRouter();
     const params = useSearchParams();
+    const { data, isLoading, error, refresh } = useFetch("job-details", {
+        name: params.id,
+    });
     const allQuestions = QUIZQUESTIONS['programmingLanguagesAndFrameworks'];
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0)
     const [isOptionsDisabled, setIsOptionsDisabled] = useState(false);
