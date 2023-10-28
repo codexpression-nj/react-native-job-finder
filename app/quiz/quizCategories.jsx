@@ -21,9 +21,8 @@ const QuizCategories = () => {
     const handleCardPress = (item) => {
         console.log(item);
         setSelectedCategory(item)
-        // router.push('/quiz/quiz');
         // setSelectedJob(item.job_id);
-        router.push(`/quiz/quiz/${item.name}`);
+        router.push(`/quiz/${item.name}`);
     };
     return (
         <View style={styles.container}>
