@@ -55,7 +55,7 @@ const OnBoard = () => {
         onPress={() => { route.push('/home') }}
 
       >
-        <Text>
+        <Text style={{color:COLORS.white}}>
           Skip
         </Text>
       </TouchableOpacity>
@@ -118,7 +118,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     flexDirection: "row",
     marginTop: SIZES.large,
-    height: 50,
+    height: 40,
   },
   searchWrapper: {
     flex: 1,

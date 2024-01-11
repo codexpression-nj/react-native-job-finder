@@ -5,6 +5,7 @@ import { COLORS } from './constants/theme';
 import { SIZES } from './constants/theme';
 import { Stack,useRouter } from 'expo-router';
 import pic from '../assets/wel2.png'
+import pic2 from '../assets/welcomePic.png'
 // create a component
 const Welcome = () => {
     const router = useRouter()
@@ -23,8 +24,8 @@ const Welcome = () => {
             <View style={styles.img}>
                 <Image 
                     resizeMode='contain'
-                    style={{height:270, marginTop: 'auto'}}
-                source={pic}/>
+                    style={{height:130}}
+                source={pic2}/>
             </View>
             <View style={styles.bottomView}>
                 <Text style={styles.title}>Find a perfect job match</Text>
@@ -43,15 +44,15 @@ const Welcome = () => {
 // define your styles
 const styles = StyleSheet.create({
     container: {
-        flex: 3,
+        flex: 1,
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: COLORS.white,
+        backgroundColor:COLORS.backgroundColour
     },
     img:{
         flex:1.5,
-        // justifyContent: 'center',
-        // alignItems: 'center',
+        justifyContent: 'center',
+        alignItems: 'center',
        
     },
     getStartedBtn: {
@@ -68,7 +69,7 @@ const styles = StyleSheet.create({
         color: COLORS.white,
       },
       bottomView:{
-        flex:1,
+        // flex:1,
         width:'100%',
         backgroundColor: '#ffffff',
         borderTopLeftRadius:SIZES.medium,
