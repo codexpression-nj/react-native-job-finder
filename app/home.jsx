@@ -11,6 +11,7 @@ import QuizCard from './components/quizCard';
 // create a component
 const Home = () => {
     const router = useRouter()
+    
     const [searchTerm, setSearchTerm] = useState("")
 
     return (

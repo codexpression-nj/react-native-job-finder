@@ -1,19 +1,46 @@
 //import liraries
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import { View, Text, StyleSheet, FlatList, SafeAreaView, TouchableOpacity, TextInput } from 'react-native';
 import skillExpertise from './service/skillExpertiseData';
 import { COLORS, SIZES } from './constants/theme';
-import { Stack,useRouter } from 'expo-router';
+import { Stack, useRouter } from 'expo-router';
 
-const Item = ({ title }) => (
-  <TouchableOpacity style={styles.item}>
-    <Text style={styles.skills}>{title}</Text>
-  </TouchableOpacity>
-);
+
+
 const OnBoard = () => {
   const { skillsData } = skillExpertise();
   const route = useRouter()
+  const [searchText, setSearchText] = useState('');
+  const [filteredData, setFilteredData] = useState([]);
+  const [selectedItems, setSelectedItems] = useState(null);
+  const [selectedItemsArray, setSelectedItemsArray] = useState([]);
 
+  const handleSearch = (text) => {
+    setSearchText(text);
+    const filteredArray = skillsData.filter(item => item.toLowerCase().includes(text.toLowerCase()));
+    setFilteredData(filteredArray);
+  };
+
+  const handleItemPress = (item) => {
+    const isSelected = selectedItemsArray.includes(item);
+
+    // Check if the item is already in the array before adding it
+    if (isSelected) {
+      setSelectedItemsArray(prevArray => prevArray.filter(selectedItem => selectedItem !== item));
+
+    } else {
+      setSelectedItemsArray(prevArray => [...prevArray, item]);
+    }
+  };
+  const Item = ({ title }) => (
+    
+    <TouchableOpacity
+      onPress={() => handleItemPress(title)}
+      style={[styles.item, {backgroundColor: selectedItemsArray.includes(title) ? 'lightblue' : COLORS.tertiary}]}
+    >
+      <Text style={styles.skills}>{title}</Text>
+    </TouchableOpacity>
+  );
   return (
     <SafeAreaView style={styles.container}>
       <Stack.Screen
@@ -21,11 +48,11 @@ const OnBoard = () => {
           headerShown: false
         }}
       />
-      <TouchableOpacity 
-      style={styles.skipBtn
-        
-      }
-      onPress={() => { route.push('/home') }}
+      <TouchableOpacity
+        style={styles.skipBtn
+
+        }
+        onPress={() => { route.push('/home') }}
 
       >
         <Text>
@@ -42,8 +69,9 @@ const OnBoard = () => {
           <View style={styles.searchWrapper}>
             <TextInput
               style={styles.searchInput}
-              // v
+              value={searchText}
               placeholder='Search'
+              onChangeText={handleSearch}
             />
           </View>
 
@@ -52,11 +80,11 @@ const OnBoard = () => {
       </View>
 
       <FlatList
-    
-        data={skillsData}
+        data={filteredData.length > 0 ? filteredData : skillsData}
         renderItem={({ item }) => <Item title={item} />}
-        keyExtractor={item => item.id}
-        
+        keyExtractor={(item, index) => index.toString()}
+
+
       />
     </SafeAreaView>
   );
@@ -73,18 +101,18 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 34,
     color: COLORS.white,
-    textAlign:'center'
+    textAlign: 'center'
   },
-  subTitle:{
-    color:COLORS.white,
-    fontWeight:300,
-    margin:SIZES.medium
+  subTitle: {
+    color: COLORS.white,
+    fontWeight: 300,
+    margin: SIZES.medium
   },
   titleBox: {
     marginTop: 100,
     marginBottom: 50,
     alignItems: 'center'
-  }, 
+  },
   searchContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -106,28 +134,28 @@ const styles = StyleSheet.create({
     width: "100%",
     height: "100%",
     paddingHorizontal: SIZES.medium,
-    color:COLORS.white
+    color: COLORS.white
   },
-  item:{
+  item: {
     // backgroundColor:COLORS.tertiary,
-    margin:10,
-    padding:10,
+    margin: 10,
+    padding: 10,
     borderRadius: SIZES.medium,
-    justifyContent:'center',
-    alignContent:'center',
+    justifyContent: 'center',
+    alignContent: 'center',
     // width: '80%',
     alignItems: 'center',
-    borderWidth:1,
-    borderColor:COLORS.tertiary
+    borderWidth: 1,
+    borderColor: COLORS.tertiary,
 
-  } ,skills:{
-    color:COLORS.tertiary,
-    fontSize:20, 
-    // fontWeight:300
+  }, skills: {
+    color: COLORS.white,
+    fontSize: 18,
+    fontWeight:300
   },
-  skipBtn:{
-    alignContent:'flex-end',
-    margin:30
+  skipBtn: {
+    alignContent: 'flex-end',
+    margin: 30
   }
 });
 
