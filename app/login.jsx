@@ -43,7 +43,7 @@ const Login = () => {
             </View>
 
             <TouchableOpacity style={styles.btnLogin}
-                onPress={() => { router.push('/onBoard') }}>
+                onPress={() => { router.replace('/onBoard') }}>
                 <Text style={{ color: COLORS.white }}>Login</Text>
             </TouchableOpacity>
 

@@ -52,7 +52,7 @@ const OnBoard = () => {
         style={styles.skipBtn
 
         }
-        onPress={() => { route.push('/home') }}
+        onPress={() => { route.replace('/home') }}
 
       >
         <Text style={{color:COLORS.white}}>
