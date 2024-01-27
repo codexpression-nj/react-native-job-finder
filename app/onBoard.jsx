@@ -60,7 +60,6 @@ const OnBoard = () => {
         </Text>
       </TouchableOpacity>
       <View style={styles.titleBox}>
-        {/* <SearchBar/> */}
         <Text style={styles.title}>
           What are your skill expertise
         </Text>
@@ -79,12 +78,16 @@ const OnBoard = () => {
         </View>
       </View>
 
-      <FlatList
+      <FlatList 
+          columnWrapperStyle={styles.tagView}
+          numColumns={9}
+
+        // style={{display:'flex',flexDirection:'row'}}
         data={filteredData.length > 0 ? filteredData : skillsData}
         renderItem={({ item }) => <Item title={item} />}
         keyExtractor={(item, index) => index.toString()}
 
-
+        
       />
     </SafeAreaView>
   );
@@ -94,24 +97,33 @@ const OnBoard = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
+    // justifyContent: 'center',
     // alignItems: 'center',
     backgroundColor: COLORS.backgroundColour,
   },
   title: {
     fontSize: 34,
     color: COLORS.white,
-    textAlign: 'center'
+    // textAlign: 'center'
+    // alignContent:'flex-start'
+    marginLeft:10
   },
   subTitle: {
     color: COLORS.white,
-    fontWeight: 300,
-    margin: SIZES.medium
+    fontWeight: 200,
+    // margin: SIZES.medium,
+    // alignContent:'flex-start'
+    marginLeft:10
+
+  },
+  tagView: {
+    flexWrap: "wrap"
   },
   titleBox: {
-    marginTop: 100,
+    marginTop: 70,
     marginBottom: 50,
-    alignItems: 'center'
+    // margin:10
+    // alignItems: 'center'
   },
   searchContainer: {
     justifyContent: "center",
@@ -140,14 +152,14 @@ const styles = StyleSheet.create({
     // backgroundColor:COLORS.tertiary,
     margin: 10,
     padding: 10,
+    flex: 0,
     borderRadius: SIZES.medium,
-    justifyContent: 'center',
-    alignContent: 'center',
-    // width: '80%',
-    alignItems: 'center',
+    // justifyContent: 'center',
+    // alignContent: 'center',
+    // alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.tertiary,
-
+    // alignItems: 'flex-start',
   }, skills: {
     color: COLORS.white,
     fontSize: 18,
