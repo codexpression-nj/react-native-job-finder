@@ -2,12 +2,17 @@
 import React, { Component } from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 import { COLORS, SIZES } from '../constants/theme';
+import { useRouter } from 'expo-router';
 
 // create a component
 const HeaderProfileBtn = ({ iconUrl }) => {
+    const router = useRouter()
+
     return (
         <View>
-            <TouchableOpacity style={styles.btn}>
+            <TouchableOpacity style={styles.btn} 
+             onPress={()=>{router.push('/profle')}}
+            >
                 <Image
                     source={iconUrl}
                     resizeMode='cover'

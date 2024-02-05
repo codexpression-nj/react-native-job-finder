@@ -12,6 +12,7 @@ const Layout = () =>{
           <Stack.Screen name="signUp" />
           <Stack.Screen name="onBoard" />
           <Stack.Screen name="resetPassword" />
+          <Stack.Screen name="profile" />
           <Stack.Screen name="quiz/quizCategories" />
   </Stack>;
 }
