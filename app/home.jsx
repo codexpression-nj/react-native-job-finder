@@ -34,7 +34,6 @@ const Home = () => {
                 }}>
                     
                     <HeaderGreeting />
-                    {/* <QuizCard/> */}
                     <PopularJobs/>
                 </View>
             {/* </ScrollView> */}

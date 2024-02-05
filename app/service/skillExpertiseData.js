@@ -6,7 +6,7 @@ import { View, Text, StyleSheet } from 'react-native';
 // create a component
 const skillExpertise = () => {
 
-    const [skillsData, setSkillData] = useState(['python','java','react native','ionic','react native','ionic','react native','ionic']);
+    const [skillsData, setSkillData] = useState(['python','java','react native','ionic','reactJS','ionic','database','xamarin']);
 
     
     return {skillsData};

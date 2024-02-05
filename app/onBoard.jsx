@@ -5,8 +5,6 @@ import skillExpertise from './service/skillExpertiseData';
 import { COLORS, SIZES } from './constants/theme';
 import { Stack, useRouter } from 'expo-router';
 
-
-
 const OnBoard = () => {
   const { skillsData } = skillExpertise();
   const route = useRouter()
@@ -33,10 +31,10 @@ const OnBoard = () => {
     }
   };
   const Item = ({ title }) => (
-    
+
     <TouchableOpacity
       onPress={() => handleItemPress(title)}
-      style={[styles.item, {backgroundColor: selectedItemsArray.includes(title) ? 'lightblue' : COLORS.tertiary}]}
+      style={[styles.item, { backgroundColor: selectedItemsArray.includes(title) ? COLORS.secondary : COLORS.tertiary }]}
     >
       <Text style={styles.skills}>{title}</Text>
     </TouchableOpacity>
@@ -48,17 +46,27 @@ const OnBoard = () => {
           headerShown: false
         }}
       />
+      <View style={styles.topBtn}>
       <TouchableOpacity
         style={styles.skipBtn
-
         }
         onPress={() => { route.replace('/home') }}
-
       >
-        <Text style={{color:COLORS.white}}>
+        <Text style={{ color: COLORS.white }}>
           Skip
         </Text>
       </TouchableOpacity>
+      <TouchableOpacity
+        style={styles.nextBtn
+        }
+        onPress={() => { route.replace('/home') }}
+      >
+        <Text style={{ color: COLORS.white }}>
+          Next
+        </Text>
+      </TouchableOpacity>
+      </View>
+     
       <View style={styles.titleBox}>
         <Text style={styles.title}>
           What are your skill expertise
@@ -78,16 +86,16 @@ const OnBoard = () => {
         </View>
       </View>
 
-      <FlatList 
-          columnWrapperStyle={styles.tagView}
-          numColumns={9}
+      <FlatList
+        columnWrapperStyle={styles.tagView}
+        numColumns={9}
 
         // style={{display:'flex',flexDirection:'row'}}
         data={filteredData.length > 0 ? filteredData : skillsData}
         renderItem={({ item }) => <Item title={item} />}
         keyExtractor={(item, index) => index.toString()}
 
-        
+
       />
     </SafeAreaView>
   );
@@ -99,6 +107,7 @@ const styles = StyleSheet.create({
     flex: 1,
     // justifyContent: 'center',
     // alignItems: 'center',
+    padding:16,
     backgroundColor: COLORS.backgroundColour,
   },
   title: {
@@ -106,14 +115,14 @@ const styles = StyleSheet.create({
     color: COLORS.white,
     // textAlign: 'center'
     // alignContent:'flex-start'
-    marginLeft:10
+    // marginLeft: 10
   },
   subTitle: {
     color: COLORS.white,
     fontWeight: 200,
     // margin: SIZES.medium,
     // alignContent:'flex-start'
-    marginLeft:10
+    // marginLeft: 10
 
   },
   tagView: {
@@ -125,6 +134,12 @@ const styles = StyleSheet.create({
     // margin:10
     // alignItems: 'center'
   },
+  topBtn:{
+      display:"flex",
+      flexDirection:'row',
+      alignContent:'space-around',
+      // flex:
+  },
   searchContainer: {
     justifyContent: "center",
     alignItems: "center",
@@ -135,7 +150,7 @@ const styles = StyleSheet.create({
   searchWrapper: {
     flex: 1,
     backgroundColor: COLORS.tertiary,
-    margin: SIZES.large,
+    // margin: SIZES.large,
     justifyContent: "center",
     alignItems: "center",
     borderRadius: SIZES.medium,
@@ -163,12 +178,22 @@ const styles = StyleSheet.create({
   }, skills: {
     color: COLORS.white,
     fontSize: 18,
-    fontWeight:300
+    fontWeight: 300
   },
   skipBtn: {
-    alignContent: 'flex-end',
-    margin: 30
+    // alignContent: 'flex-end',
+    flex:1,
+    margin: 6
+  },
+  nextBtn:{
+    // flex:1,
+    alignContent:'flex-end',
+    // backgroundColor: 'blue',
+    alignItems:'center',
+    margin: 6
+
   }
+
 });
 
 //make this component available to the app

@@ -9,6 +9,7 @@ import logo from '../assets/appLogo.png'
 // create a component
 const Signup = () => {
     const route = useRouter()
+
     return (
         <View style={styles.container}>
             <Stack.Screen
